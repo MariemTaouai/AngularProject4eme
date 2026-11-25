@@ -1,0 +1,33 @@
+<h1>{{ title }}</h1>
+ <!---two way binding -->
+  <DIV>
+        <input type="text" placeholder="search conference par titre" [(ngModel)]="searchTitle" >{{ searchTitle }}
+        <h2> {{ x() }}</h2>
+    </DIV>  
+    <!---two way binding -->
+<div clas="container "style ="display:flex;flex-wrap:wrap;gap:20px">
+   
+    @for(conf of serchConferences();track conf.id){
+        @if (conf.nbPlaces>0){
+          <div class="card" style="width: 18rem;">
+  <img src="{{ conf.imageUrl }}" class="card-img-top" alt="conf image">
+  <div class="card-body">
+    <h5 class="card-title">{{ conf.titre | uppercase }}</h5>
+    <p class="card-text">{{ conf.category }}</p>
+    <p>{{ conf.date |date:'dd -MM-yyyy' }}</p>
+    <a href="#" class="btn btn-primary" (click)="addtofavorite(conf)">Add to favorite</a>
+  </div>
+</div>
+
+
+    }
+}@empty {<H2>aucune conference disponible pour le moment</H2>}
+  
+</div>
+<div>
+    <ul>
+        @for (fconf of favoritelist();track fconf.id){
+            <li>{{ fconf.titre }}</li>
+        }
+    </ul>
+</div>

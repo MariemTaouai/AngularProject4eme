@@ -3,9 +3,10 @@ import { RouterOutlet } from '@angular/router';
 import { Header } from './core/header/header';
 import { Footer } from './core/footer/footer';
 import { Home } from './core/home/home';
+import { ConfrerenceList } from './core/confrerence-list/confrerence-list';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet ,Header,Footer, Home],
+  imports: [RouterOutlet, Header, Footer, Home, ConfrerenceList],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
